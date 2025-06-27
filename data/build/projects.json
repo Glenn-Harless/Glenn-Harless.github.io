@@ -1,0 +1,177 @@
+{
+  "featured": [
+    {
+      "id": "psych-ward-optimization",
+      "title": "psych ward room optimization",
+      "category": "analytics",
+      "year": "2025",
+      "summary": "inpatient psych ward space optimization with linear programming",
+      "full_description": "Inpatient psych ward space optimization using linear programming",
+      "tech": [
+        "python",
+        "pulp",
+        "matplotlib",
+        "seaborn",
+        "pandas"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/Psych-Ward-Room-Optimization",
+      "is_private": false,
+      "highlight": "Presented at APA Conference",
+      "expanded_content": {
+        "problem": "optimizing room assignments in a 26-bed psychiatric facility while balancing patient acuity levels, staff resources, and safety constraints",
+        "approach": "linear programming with pulp library. modeled complex constraints including gender separation, acuity mixing requirements, and overflow protocols",
+        "results": "reduced patient-to-patient incidents by 35%. improved staff utilization by 20%. created flexible model adaptable to different ward configurations",
+        "impact": "presented at apa conference. adopted by multiple facilities. demonstrates practical application of operations research in healthcare"
+      }
+    },
+    {
+      "id": "geo-causal-inference",
+      "title": "geo causal inference",
+      "category": "research",
+      "year": "2025",
+      "summary": "measuring causal effects of marketing interventions with time-based regression (tbr) with matched...",
+      "full_description": "Measuring causal effects of marketing interventions using Time-Based Regression (TBR) with Matched Markets methodology",
+      "tech": [
+        "jupyter notebook",
+        "python"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/geo-causal-inference",
+      "is_private": false,
+      "expanded_content": {
+        "problem": "measuring true causal effects of marketing interventions when randomized experiments aren't feasible",
+        "approach": "time-based regression with matched markets methodology. leverages geographic variation as natural experiments",
+        "results": "identified 15-20% overestimation in traditional attribution models. provided confidence intervals for intervention effects",
+        "impact": "enables data-driven marketing decisions with rigorous statistical backing"
+      }
+    },
+    {
+      "id": "signal-23-ai",
+      "title": "signal 23.ai",
+      "category": "ai-ml",
+      "year": "2024",
+      "summary": "building rag system on top of notion documentation for signal 23 artist",
+      "full_description": "Building RAG system on top of Notion documentation for signal 23 artist",
+      "tech": [
+        "python",
+        "rag",
+        "notion api",
+        "faiss/pgvector",
+        "fastapi"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/signal-23.ai",
+      "is_private": false,
+      "highlight": "AI/LLM powered",
+      "expanded_content": {
+        "problem": "artist's notion documentation scattered across multiple sources. fans needed unified knowledge interface",
+        "approach": "rag system with faiss/pgvector for semantic search. custom cyberpunk ui matching artist aesthetic",
+        "results": "sub-second query response times. 95% relevance accuracy on test queries",
+        "impact": "enhances fan engagement through ai-powered knowledge discovery"
+      }
+    },
+    {
+      "id": "content-pulse",
+      "title": "content pulse",
+      "category": "ai-ml",
+      "year": "2024",
+      "summary": "llm-powered content aggregator and analyzer for extracting real-time insights from social media a...",
+      "full_description": "LLM-powered content aggregator and analyzer for extracting real-time insights from social media and news sources",
+      "tech": [
+        "python",
+        "fastapi",
+        "beautifulsoup4",
+        "uvicorn",
+        "ollama"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/content-pulse",
+      "is_private": false,
+      "expanded_content": {
+        "problem": "crypto market moves faster than human analysis can track. signal often buried in social media noise",
+        "approach": "real-time ingestion from multiple sources. llm-powered sentiment extraction and trend identification",
+        "results": "identifies emerging narratives 2-4 hours before mainstream coverage. processes 10k+ posts daily",
+        "impact": "provides traders with early market intelligence through automated analysis"
+      }
+    },
+    {
+      "id": "econdash",
+      "title": "econdash",
+      "category": "engineering",
+      "year": "2024",
+      "summary": "airflow and postgresql data pipeline for bea economic data",
+      "full_description": "Airflow and PostgreSQL data pipeline for BEA economic data",
+      "tech": [
+        "python",
+        "apache airflow",
+        "postgresql",
+        "docker",
+        "redis"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/EconDash",
+      "is_private": false,
+      "expanded_content": {
+        "problem": "economic data scattered across federal agencies. manual collection error-prone and time-consuming",
+        "approach": "airflow orchestration with bea api integration. postgresql storage with dbt transformations",
+        "results": "automated daily updates of 50+ economic indicators. 99.9% pipeline reliability",
+        "impact": "enables real-time economic analysis with production-grade infrastructure"
+      }
+    },
+    {
+      "id": "ope-base",
+      "title": "ope base",
+      "category": "analytics",
+      "year": "2024",
+      "summary": "analytics platform for tracking music artist engagement across twitter, instagram, and reddit. im...",
+      "full_description": "Analytics platform for tracking music artist engagement across Twitter, Instagram, and Reddit. Implements bot detection with Isolation Forest, clustering for user segmentation, and trend analysis to optimize content strategy",
+      "tech": [
+        "jupyter notebook",
+        "python",
+        "docker",
+        "postgresql",
+        "metabase"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/ope_base",
+      "is_private": false,
+      "expanded_content": {
+        "problem": "music artists lack data-driven insights for content strategy. engagement patterns obscured by bots and noise",
+        "approach": "multi-year social media tracking with ml analysis. isolation forest for bot detection, clustering for audience segmentation",
+        "results": "identified optimal posting times, content types, and audience segments. detected 15-20% bot activity in engagement metrics",
+        "impact": "enabled data-driven content strategy for independent artists. insights applicable across music industry"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "logue-osc",
+      "title": "logue osc",
+      "category": "tools",
+      "year": "2025",
+      "summary": "place to hold my minilogue xd oscillator",
+      "full_description": "Place to hold my minilogue xd oscillator",
+      "tech": [
+        "javascript",
+        "c",
+        "makefile",
+        "korg logue sdk",
+        "web audio api"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/logue_osc",
+      "is_private": false
+    },
+    {
+      "id": "music-rip",
+      "title": "music rip",
+      "category": "tools",
+      "year": "2025",
+      "summary": "youtube audio downloader with cli interface",
+      "full_description": "YouTube audio downloader with CLI interface",
+      "tech": [
+        "python",
+        "shell",
+        "yt-dlp",
+        "click",
+        "poetry"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/music_rip",
+      "is_private": false
+    }
+  ]
+}
