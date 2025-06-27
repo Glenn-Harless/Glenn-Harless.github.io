@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>glenn harless</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: crosshair;
+        }
+
+        ::selection {
+            background: rgba(0, 0, 0, 0.9);
+            color: #fdf6e3;
+        }
+
+        html {
+            font-size: 11px;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 200;
+            background: #fdf6e3; /* Solarized base3 - that warm off-white */
+            color: rgba(0, 0, 0, 0.85);
+            min-height: 100vh;
+            letter-spacing: 0.02em;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            position: relative;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.2s ease;
+        }
+
+        a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Grid system */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header scattered positioning */
+        .header {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            height: 100vh;
+            position: relative;
+        }
+
+        .name {
+            grid-column: 2 / 5;
+            grid-row: 1;
+            align-self: end;
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 20vh;
+        }
+
+        .role {
+            grid-column: 7 / 10;
+            grid-row: 1;
+            align-self: center;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            opacity: 0.6;
+        }
+
+        .contact {
+            grid-column: 10 / 12;
+            grid-row: 1;
+            align-self: start;
+            margin-top: 10vh;
+            text-align: right;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        .nav {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .coordinates {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.4;
+            font-family: monospace;
+        }
+
+        /* Project display */
+        .projects {
+            grid-column: 1 / -1;
+            margin-top: 10vh;
+        }
+
+        .project {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            margin-bottom: 8rem;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        .project:hover {
+            opacity: 1;
+        }
+
+        .project-index {
+            grid-column: 1 / 2;
+            font-size: 0.8rem;
+            opacity: 0.4;
+        }
+
+        .project-title {
+            grid-column: 2 / 6;
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+
+        .project-category {
+            grid-column: 6 / 8;
+            align-self: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .project-year {
+            grid-column: 8 / 9;
+            align-self: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .project-description {
+            grid-column: 2 / 10;
+            margin-top: 1rem;
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.7;
+        }
+
+        .project-tech {
+            grid-column: 2 / 8;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        /* About section - scattered text blocks */
+        .about {
+            grid-column: 1 / -1;
+            margin: 20vh 0;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+
+        .about-block {
+            opacity: 0.75;
+            line-height: 1.8;
+        }
+
+        .about-block:nth-child(1) {
+            grid-column: 2 / 7;
+        }
+
+        .about-block:nth-child(2) {
+            grid-column: 6 / 11;
+            margin-top: 10vh;
+        }
+
+        .about-block:nth-child(3) {
+            grid-column: 3 / 8;
+            margin-top: -5vh;
+        }
+
+        /* Skills visualization */
+        .skills {
+            grid-column: 1 / -1;
+            margin: 20vh 0;
+            position: relative;
+            height: 60vh;
+        }
+
+        .skill-node {
+            position: absolute;
+            font-size: 0.9rem;
+            opacity: 0.5;
+            transition: opacity 0.2s ease;
+        }
+
+        .skill-node:hover {
+            opacity: 0.9;
+        }
+
+        .skill-node::before {
+            content: '×';
+            margin-right: 0.5rem;
+            opacity: 0.4;
+        }
+
+        /* Floating elements */
+        .float-text {
+            position: fixed;
+            font-size: 0.8rem;
+            opacity: 0.2;
+            pointer-events: none;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(30px, -20px); }
+            66% { transform: translate(-20px, 10px); }
+        }
+
+        /* ASCII elements */
+        .ascii-decoration {
+            font-size: 0.7rem;
+            opacity: 0.15;
+            line-height: 1;
+            white-space: pre;
+            position: absolute;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .header, .projects, .about {
+                grid-template-columns: 1fr;
+            }
+
+            .name {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .role {
+                writing-mode: horizontal-tb;
+                margin: 1rem 0;
+            }
+
+            .project > * {
+                grid-column: 1 / -1;
+            }
+
+            .about-block {
+                grid-column: 1 / -1 !important;
+                margin-top: 2rem !important;
+            }
+
+            .skills {
+                height: auto;
+            }
+
+            .skill-node {
+                position: relative;
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+
+        /* E-ink texture effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.02) 2px,
+                    rgba(0, 0, 0, 0.02) 3px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.01) 2px,
+                    rgba(0, 0, 0, 0.01) 3px
+                );
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        /* Paper grain texture */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: 1;
+            pointer-events: none;
+            background-image: 
+                repeating-radial-gradient(
+                    circle at 0 0, 
+                    transparent 0,
+                    #000 1px,
+                    transparent 1px,
+                    transparent 2px
+                );
+        }
+
+        /* All content above texture */
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Subtle ink bleed effect on hover */
+        .project-title,
+        .name {
+            transition: filter 0.3s ease;
+        }
+
+        .project:hover .project-title,
+        .name:hover {
+            filter: blur(0.2px);
+        }
+
+        /* E-reader style page indicator */
+        .page-indicator {
+            position: fixed;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            opacity: 0.4;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .page-dot {
+            width: 4px;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .page-dot.active {
+            background: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="#work">work</a>
+        <a href="#about">about</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+    <div class="coordinates" id="coords">37°N 122°W</div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="name">glenn harless</h1>
+            <div class="role">data scientist / engineer</div>
+            <div class="contact">
+                glenn.r.harless@gmail.com<br>
+                san diego, ca
+            </div>
+            
+            <pre class="ascii-decoration" style="top: 60%; left: 50%;">
+    ╱╲
+   ╱  ╲
+  ╱    ╲
+ ╱      ╲
+╱________╲
+            </pre>
+        </header>
+
+        <section class="projects" id="work">
+            <div class="project">
+                <div class="project-index">001</div>
+                <h2 class="project-title">content pulse</h2>
+                <div class="project-category">ai/llm</div>
+                <div class="project-year">2024</div>
+                <p class="project-description">
+                    real-time intelligence system processing social feeds and news through custom llm pipelines. 
+                    identifies emerging narratives in crypto markets before mainstream awareness.
+                </p>
+                <div class="project-tech">
+                    python × transformers × streaming architecture × nlp
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-index">002</div>
+                <h2 class="project-title">geo-causal inference</h2>
+                <div class="project-category">analytics</div>
+                <div class="project-year">2023</div>
+                <p class="project-description">
+                    statistical framework measuring true causal effects of marketing interventions. 
+                    leverages geographic quasi-experiments and time-based regression.
+                </p>
+                <div class="project-tech">
+                    r × python × causal ml × bayesian methods
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-index">003</div>
+                <h2 class="project-title">ope base</h2>
+                <div class="project-category">data platform</div>
+                <div class="project-year">2020-</div>
+                <p class="project-description">
+                    multi-year social analytics platform. processes twitter, instagram, reddit data 
+                    to identify long-term cultural shifts and behavioral patterns.
+                </p>
+                <div class="project-tech">
+                    sql × distributed systems × etl × visualization
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-index">004</div>
+                <h2 class="project-title">psych ward optimization</h2>
+                <div class="project-category">healthcare</div>
+                <div class="project-year">2023</div>
+                <p class="project-description">
+                    constraint optimization system for psychiatric facility operations. 
+                    balances patient needs, staff resources, and safety requirements.
+                </p>
+                <div class="project-tech">
+                    python × optimization × healthcare systems
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-index">005</div>
+                <h2 class="project-title">minilogue oscillator</h2>
+                <div class="project-category">audio/dsp</div>
+                <div class="project-year">2022</div>
+                <p class="project-description">
+                    custom digital oscillator for korg minilogue xd. low-level dsp 
+                    programming for real-time synthesis on embedded hardware.
+                </p>
+                <div class="project-tech">
+                    c++ × dsp × embedded × synthesis algorithms
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <p class="about-block">
+                i build systems that extract meaning from chaos. whether it's parsing 
+                millions of social posts for market signals or optimizing hospital 
+                operations, the core challenge remains: finding the signal in the noise.
+            </p>
+            
+            <p class="about-block">
+                my work spans the full stack of data science — from low-level dsp 
+                programming to distributed ml pipelines. recent focus on llm applications 
+                and causal inference methods.
+            </p>
+            
+            <p class="about-block">
+                currently with nodus.io. previously tackled problems in healthcare, 
+                finance, and marketing analytics. 37 repositories. countless experiments. 
+                still learning.
+            </p>
+        </section>
+
+        <section class="skills">
+            <div class="skill-node" style="top: 10%; left: 15%;">python</div>
+            <div class="skill-node" style="top: 25%; left: 60%;">machine learning</div>
+            <div class="skill-node" style="top: 40%; left: 30%;">llms</div>
+            <div class="skill-node" style="top: 15%; left: 80%;">react</div>
+            <div class="skill-node" style="top: 55%; left: 20%;">causal inference</div>
+            <div class="skill-node" style="top: 70%; left: 45%;">data engineering</div>
+            <div class="skill-node" style="top: 30%; left: 40%;">nlp</div>
+            <div class="skill-node" style="top: 60%; left: 70%;">sql</div>
+            <div class="skill-node" style="top: 80%; left: 25%;">dsp/audio</div>
+            <div class="skill-node" style="top: 45%; left: 85%;">distributed systems</div>
+            <div class="skill-node" style="top: 85%; left: 60%;">optimization</div>
+        </section>
+    </div>
+
+    <div class="float-text" style="top: 20%; left: 10%;">∞</div>
+    <div class="float-text" style="top: 70%; right: 15%; animation-delay: -10s;">◊</div>
+
+    <div class="page-indicator">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+    </div>
+
+    <script>
+        // Update coordinates based on mouse position
+        document.addEventListener('mousemove', (e) => {
+            const x = ((e.clientX / window.innerWidth) * 180 - 90).toFixed(0);
+            const y = ((e.clientY / window.innerHeight) * 180 - 90).toFixed(0);
+            document.getElementById('coords').textContent = `${Math.abs(x)}°${x >= 0 ? 'E' : 'W'} ${Math.abs(y)}°${y >= 0 ? 'N' : 'S'}`;
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Parallax on skill nodes
+        const skills = document.querySelectorAll('.skill-node');
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+            const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+            
+            skills.forEach((skill, i) => {
+                const speed = 0.5 + (i * 0.1);
+                skill.style.transform = `translate(${x * speed * 20}px, ${y * speed * 20}px)`;
+            });
+        });
+
+        // Update page indicator on scroll
+        const pageDots = document.querySelectorAll('.page-dot');
+        window.addEventListener('scroll', () => {
+            const scrollPercentage = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            const currentPage = Math.floor(scrollPercentage * pageDots.length);
+            
+            pageDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index <= currentPage);
+            });
+        });
+    </script>
+</body>
+</html>

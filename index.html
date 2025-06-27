@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>glenn harless - data scientist & engineer</title>
+    <meta name="description" content="Portfolio of Glenn Harless - Data scientist and engineer specializing in AI/ML, analytics, and engineering solutions.">
+    <link rel="stylesheet" href="styles.css">
+    <noscript>
+        <style>
+            .project { opacity: 0.8 !important; }
+            .expand-btn { display: none !important; }
+            #search-overlay { display: none !important; }
+        </style>
+    </noscript>
+</head>
+<body>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="#work" aria-label="View work projects">work</a>
+        <a href="#about" aria-label="About Glenn Harless">about</a>
+        <a href="#contact" aria-label="Contact information">contact</a>
+    </nav>
+
+    <div class="coordinates" id="coords" aria-live="polite" aria-label="Mouse coordinates">37°N 122°W</div>
+    
+    <div class="keyboard-hint" id="keyboard-hint" aria-live="polite" role="status"></div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="name">glenn harless</h1>
+            <div class="role">data scientist / engineer</div>
+            <div class="contact">
+                glenn.r.harless@gmail.com<br>
+                san diego, ca
+            </div>
+            
+            <pre class="ascii-decoration" style="top: 60%; left: 50%;">
+    ╱╲
+   ╱  ╲
+  ╱    ╲
+ ╱      ╲
+╱________╲
+            </pre>
+        </header>
+
+        <section class="work-section" id="work">
+            <!-- Filter Bar -->
+            <div class="filter-bar" role="tablist" aria-label="Project category filters">
+                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" aria-controls="all-projects">all</button>
+                <button class="filter-btn" data-filter="ai-ml" role="tab" aria-selected="false" aria-controls="all-projects">ai/ml</button>
+                <button class="filter-btn" data-filter="analytics" role="tab" aria-selected="false" aria-controls="all-projects">analytics</button>
+                <button class="filter-btn" data-filter="engineering" role="tab" aria-selected="false" aria-controls="all-projects">engineering</button>
+                <button class="filter-btn" data-filter="web" role="tab" aria-selected="false" aria-controls="all-projects">web</button>
+                <button class="filter-btn" data-filter="tools" role="tab" aria-selected="false" aria-controls="all-projects">tools</button>
+                <button class="filter-btn" data-filter="research" role="tab" aria-selected="false" aria-controls="all-projects">research</button>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="projects-section">
+                <h2 class="section-title">projects</h2>
+                <div class="projects" id="projects-container">
+                    <!-- All projects will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Template (hidden, used for cloning) -->
+        <template id="project-template">
+            <div class="project" data-category="">
+                <div class="project-index"></div>
+                <h2 class="project-title"></h2>
+                <div class="project-category"></div>
+                <div class="project-year"></div>
+                <div class="project-badge featured-badge">featured</div>
+                <p class="project-description"></p>
+                <div class="project-tech"></div>
+                <div class="project-highlight"></div>
+                
+                <!-- Expandable case study section -->
+                <div class="project-expanded">
+                    <div class="case-study-section">
+                        <h3>problem</h3>
+                        <p class="case-study-problem"></p>
+                    </div>
+                    <div class="case-study-section">
+                        <h3>approach</h3>
+                        <p class="case-study-approach"></p>
+                    </div>
+                    <div class="case-study-section">
+                        <h3>results</h3>
+                        <p class="case-study-results"></p>
+                    </div>
+                    <div class="case-study-section">
+                        <h3>impact</h3>
+                        <p class="case-study-impact"></p>
+                    </div>
+                </div>
+                
+                <button class="expand-btn" aria-label="Expand project details">
+                    <span class="expand-icon">+</span>
+                </button>
+            </div>
+        </template>
+
+        <section class="about" id="about">
+            <p class="about-block">
+                i build systems that extract meaning from chaos. whether it's parsing 
+                millions of social posts for market signals or optimizing hospital 
+                operations, the core challenge remains: finding the signal in the noise.
+            </p>
+            
+            <p class="about-block">
+                my work spans the full stack of data science — from low-level dsp 
+                programming to distributed ml pipelines. recent focus on llm applications 
+                and causal inference methods.
+            </p>
+            
+            <p class="about-block">
+                currently with nodus.io. previously tackled problems in healthcare, 
+                finance, and marketing analytics. 37 repositories. countless experiments. 
+                still learning.
+            </p>
+        </section>
+
+        <section class="skills">
+            <div class="skill-node" style="top: 10%; left: 15%;">python</div>
+            <div class="skill-node" style="top: 25%; left: 60%;">machine learning</div>
+            <div class="skill-node" style="top: 40%; left: 30%;">llms</div>
+            <div class="skill-node" style="top: 15%; left: 80%;">react</div>
+            <div class="skill-node" style="top: 55%; left: 20%;">causal inference</div>
+            <div class="skill-node" style="top: 70%; left: 45%;">data engineering</div>
+            <div class="skill-node" style="top: 30%; left: 40%;">nlp</div>
+            <div class="skill-node" style="top: 60%; left: 70%;">sql</div>
+            <div class="skill-node" style="top: 80%; left: 25%;">dsp/audio</div>
+            <div class="skill-node" style="top: 45%; left: 85%;">distributed systems</div>
+            <div class="skill-node" style="top: 85%; left: 60%;">optimization</div>
+            <div class="skill-node" style="top: 5%; left: 45%;">rag/retrieval</div>
+            <div class="skill-node" style="top: 35%; left: 10%;">etl/elt</div>
+            <div class="skill-node" style="top: 50%; left: 55%;">time series</div>
+            <div class="skill-node" style="top: 20%; left: 35%;">docker/k8s</div>
+            <div class="skill-node" style="top: 65%; left: 85%;">pytorch</div>
+            <div class="skill-node" style="top: 75%; left: 10%;">pandas/numpy</div>
+            <div class="skill-node" style="top: 90%; left: 40%;">statistical modeling</div>
+            <div class="skill-node" style="top: 12%; left: 70%;">airflow/dagster</div>
+            <div class="skill-node" style="top: 48%; left: 25%;">dbt</div>
+            <div class="skill-node" style="top: 82%; left: 80%;">a/b testing</div>
+            <div class="skill-node" style="top: 38%; left: 65%;">bigquery</div>
+            <div class="skill-node" style="top: 68%; left: 30%;">vector databases</div>
+            <div class="skill-node" style="top: 22%; left: 90%;">fastapi</div>
+            <div class="skill-node" style="top: 58%; left: 15%;">webscraping</div>
+            <div class="skill-node" style="top: 92%; left: 70%;">real-time analytics</div>
+        </section>
+    </div>
+
+    <div class="float-text" style="top: 20%; left: 10%;">∞</div>
+    <div class="float-text" style="top: 70%; right: 15%; animation-delay: -10s;">◊</div>
+
+    <div class="page-indicator">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <!-- Privacy-friendly analytics (Plausible) -->
+    <script defer data-domain="glennharless.com" src="https://plausible.io/js/script.js"></script>
+    
+    <!-- Alternative: Simple Analytics -->
+    <!-- <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script> -->
+    <!-- <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript> -->
+</body>
+</html>

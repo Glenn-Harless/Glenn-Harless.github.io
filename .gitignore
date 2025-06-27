@@ -1,0 +1,39 @@
+# MCP
+.mcp.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+*.egg-info/
+dist/
+build/
+
+# Poetry
+poetry.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Development
+test-*.html
+*.min.js
+*.min.css
+
+# Personal/Sensitive
+GlennHarlessResume.pdf
+
+# Temporary files
+*.tmp
+*.bak
+.cache/
