@@ -162,6 +162,38 @@ function setupEventListeners() {
     if (contactLink) {
         contactLink.addEventListener('click', handleContactClick);
     }
+    
+    // Mobile work section visibility
+    if (window.innerWidth <= 768) {
+        setupMobileWorkSection();
+    }
+}
+
+// Setup mobile work section behavior
+function setupMobileWorkSection() {
+    const workSection = document.querySelector('.work-section');
+    const workLink = document.querySelector('a[href="#work"]');
+    
+    // Show work section when clicking work link
+    if (workLink) {
+        workLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (workSection) {
+                workSection.style.display = 'block';
+                workSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+    
+    // Show work section on scroll past header
+    let headerHeight = document.querySelector('.header').offsetHeight;
+    window.addEventListener('scroll', () => {
+        if (window.innerWidth <= 768) {
+            if (window.scrollY > headerHeight * 0.8) {
+                workSection.style.display = 'block';
+            }
+        }
+    });
 }
 
 // Handle filter click
