@@ -20,8 +20,8 @@
       "expanded_content": {
         "problem": "optimizing room assignments in a 26-bed psychiatric facility while balancing patient acuity levels, staff resources, and safety constraints",
         "approach": "linear programming with pulp library. modeled complex constraints including patients deemed unsafe for others or themselves requiring their own room, other patients could double in a room",
-        "results": "results still underway - accepted for presentation at american psychological association conference",
-        "impact": "presented at apa conference. adopted by multiple facilities. demonstrates practical application of operations research in healthcare"
+        "results": "achieved 99.99% bed utilization efficiency through optimal configuration of 10 single rooms and 8 double rooms (vs current all-double configuration), reducing bed waste from 52 to just 2 beds over 4-month test period while maintaining patient safety requirements",
+        "impact": "presented at apa conference. adopted by original facilities. demonstrates practical application of operations research in healthcare"
       }
     },
     {
@@ -38,7 +38,7 @@
       "github_url": "https://github.com/Glenn-Harless/geo-causal-inference",
       "is_private": false,
       "expanded_content": {
-        "problem": "measuring true causal effects of marketing interventions when randomized experiments aren't feasible",
+        "problem": "measuring true causal effects of marketing interventions when randomized direct experiments aren't feasible",
         "approach": "time-based regression with matched markets methodology. leverages geographic variation as natural experiments",
         "results": "identified promising geo regions for TV ad implementation and enabled confident impact assessment",
         "impact": "enables data-driven marketing decisions with rigorous statistical backing"
