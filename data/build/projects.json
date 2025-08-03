@@ -19,8 +19,8 @@
       "highlight": "Presented at APA Conference",
       "expanded_content": {
         "problem": "optimizing room assignments in a 26-bed psychiatric facility while balancing patient acuity levels, staff resources, and safety constraints",
-        "approach": "linear programming with pulp library. modeled complex constraints including gender separation, acuity mixing requirements, and overflow protocols",
-        "results": "reduced patient-to-patient incidents by 35%. improved staff utilization by 20%. created flexible model adaptable to different ward configurations",
+        "approach": "linear programming with pulp library. modeled complex constraints including patients deemed unsafe for others or themselves requiring their own room, other patients could double in a room",
+        "results": "results still underway - accepted for presentation at american psychological association conference",
         "impact": "presented at apa conference. adopted by multiple facilities. demonstrates practical application of operations research in healthcare"
       }
     },
@@ -40,7 +40,7 @@
       "expanded_content": {
         "problem": "measuring true causal effects of marketing interventions when randomized experiments aren't feasible",
         "approach": "time-based regression with matched markets methodology. leverages geographic variation as natural experiments",
-        "results": "identified 15-20% overestimation in traditional attribution models. provided confidence intervals for intervention effects",
+        "results": "identified promising geo regions for TV ad implementation and enabled confident impact assessment",
         "impact": "enables data-driven marketing decisions with rigorous statistical backing"
       }
     },
@@ -64,7 +64,7 @@
       "expanded_content": {
         "problem": "artist's notion documentation scattered across multiple sources. fans needed unified knowledge interface",
         "approach": "rag system with faiss/pgvector for semantic search. custom cyberpunk ui matching artist aesthetic",
-        "results": "sub-second query response times. 95% relevance accuracy on test queries",
+        "results": "95% relevance accuracy on test queries. created eerie artifact communicating in broken language for atmospheric effect",
         "impact": "enhances fan engagement through ai-powered knowledge discovery"
       }
     },
@@ -87,7 +87,7 @@
       "expanded_content": {
         "problem": "crypto market moves faster than human analysis can track. signal often buried in social media noise",
         "approach": "real-time ingestion from multiple sources. llm-powered sentiment extraction and trend identification",
-        "results": "identifies emerging narratives 2-4 hours before mainstream coverage. processes 10k+ posts daily",
+        "results": "personal tool for scraping multiple news outlets in the morning",
         "impact": "provides traders with early market intelligence through automated analysis"
       }
     },
