@@ -2,7 +2,7 @@
 
 ## problem
 
-marketing teams waste millions on campaigns they think work. traditional attribution models overestimate impact by 15-20%. a/b tests often impossible at scale. geographic variation exists but goes unused.
+marketing teams waste millions on campaigns they think work. a/b tests often impossible at scale. geographic variation exists but goes unused.
 
 needed rigorous method to measure true causal effects when randomization isn't feasible.
 
@@ -66,8 +66,8 @@ visualization layer:
 analyzed 50+ marketing interventions across retail, cpg, and tech clients.
 
 findings:
-- traditional attribution overestimated impact by 15-20%
-- 30% of "successful" campaigns showed no causal effect
+- identified promising geo regions for TV ad implementation
+- enabled confident impact assessment of marketing interventions
 - geographic spillovers accounted for 8% of measured lift
 - confidence intervals revealed high uncertainty ignored by point estimates
 

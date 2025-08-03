@@ -38,3 +38,6 @@ GlennHarlessResume.pdf
 *.tmp
 *.bak
 .cache/
+
+# Local dev docs
+PORTFOLIO_UPDATE_GUIDE.md

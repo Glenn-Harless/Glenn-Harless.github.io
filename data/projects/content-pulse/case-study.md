@@ -2,7 +2,7 @@
 
 ## problem
 
-crypto moves fast. by the time you read about a trend, it's over. social media noise drowns signal. news sites bury the lede. traders needed real-time intelligence, not yesterday's news.
+needed a personal tool to stay informed. wanted to aggregate multiple news outlets efficiently in the morning to stay up-to-date.
 
 existing tools either too slow (manual curation) or too noisy (raw feeds). nothing connected the dots across platforms.
 
@@ -69,9 +69,8 @@ docker-compose packaging for one-click deploy. minimal dependencies for reliabil
 
 ## results
 
-launch metrics:
-- 10k+ articles processed daily
-- 2-4 hour lead on mainstream coverage
+personal usage:
+- scrapes multiple news outlets each morning
 - <500ms query response time
 - 89% accuracy on sentiment analysis
 

@@ -4,7 +4,7 @@
 
 music duo signal-23 had extensive notion documentation scattered across databases. fans constantly asked questions already answered somewhere. manual responses took hours. needed ai interface matching their cyberpunk aesthetic.
 
-existing rag solutions felt corporate. nothing captured the duo's retro-futuristic vibe.
+existing rag solutions felt corporate. nothing captured the duo's retro-futuristic vibe. wanted to create an eerie artifact that communicated in broken language for atmospheric effect.
 
 ## approach
 
@@ -69,6 +69,7 @@ response times:
 - cold query: 2-3 seconds
 - cached query: <200ms
 - 95% relevance accuracy on test queries
+- purposefully designed with eerie, broken language communication for atmospheric effect
 
 user engagement:
 - average session: 12 minutes (up from 2)

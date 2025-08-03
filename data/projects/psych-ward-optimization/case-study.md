@@ -4,7 +4,7 @@
 
 26-bed psychiatric facility operating at 60% efficiency. patients with severe conditions required isolation, forcing them into double rooms alone. the wasted bed couldn't be used. staff manually juggled room assignments daily. no data-driven approach existed.
 
-accepted for presentation at the american psychological association conference - validation of real-world impact.
+accepted for presentation at the american psychological association conference - results still underway.
 
 ## approach
 
@@ -12,8 +12,8 @@ linear programming with pulp solver. modeled ward as constraint optimization pro
 
 key constraints:
 - total beds fixed at 26
-- patients requiring isolation must have single rooms
-- remaining patients can share doubles
+- patients deemed unsafe for others or themselves required their own room
+- other patients could double in a room
 - minimize total wasted beds
 
 decision variables:
@@ -49,11 +49,7 @@ processed 4 years of daily census data. tracked patient acuity levels, isolation
 
 optimal configuration: 10 single rooms, 8 double rooms.
 
-metrics:
-- efficiency improved from 60% to 99.99%
-- wasted beds reduced from 1,247 to 2 over 4-month test period
-- 35% reduction in patient-to-patient incidents
-- 20% improvement in staff utilization
+results still underway. project accepted for presentation at the american psychological association conference.
 
 visualization suite generated publication-quality charts comparing current vs optimized models. daily efficiency tracking showed consistent improvements.
 
@@ -68,4 +64,4 @@ key insights:
 
 modular architecture allowed easy adaptation to different ward configurations. yaml-based config enabled non-technical staff to adjust parameters.
 
-hospital considering implementation across multiple facilities. apa presentation sparked interest from other institutions facing similar challenges.
+apa presentation will showcase methodology and expected outcomes to other institutions facing similar challenges.
