@@ -115,6 +115,29 @@
       }
     },
     {
+      "id": "ethoscope",
+      "title": "ethoscope",
+      "category": "engineering",
+      "year": "2025",
+      "summary": "comprehensive ethereum network monitoring platform tracking gas prices, mev activity, and l2 migr...",
+      "full_description": "Comprehensive Ethereum network monitoring platform tracking gas prices, MEV activity, and L2 migration patterns with real-time ETL pipeline and predictive analytics",
+      "tech": [
+        "python",
+        "fastapi",
+        "timescaledb",
+        "prophet",
+        "scikit-learn"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/ethoscope",
+      "is_private": false,
+      "expanded_content": {
+        "problem": "ethereum network health monitoring requires real-time analysis of gas prices, mev activity, and l2 migration patterns across fragmented data sources",
+        "approach": "real-time etl pipeline with web3.py and alchemy api. timescaledb for efficient time-series storage. prophet and scikit-learn for predictive analytics",
+        "results": "automated collection of blockchain metrics with reliable data ingestion. comprehensive historical data storage for trend analysis",
+        "impact": "personal tool for understanding ethereum metrics and gaining hands-on experience in the web3 space"
+      }
+    },
+    {
       "id": "ope-base",
       "title": "ope base",
       "category": "analytics",

@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "total_repositories": 37,
-    "public_repositories": 7,
+    "total_repositories": 38,
+    "public_repositories": 8,
     "private_repositories": 30,
-    "last_updated": "2025-06-27",
+    "last_updated": "2025-08-07",
     "categories": {
       "ai-ml": 8,
       "analytics": 14,
-      "engineering": 3,
+      "engineering": 4,
       "web": 4,
       "tools": 6,
       "research": 2
@@ -83,6 +83,20 @@
       "complexity": "high",
       "special_notes": "Economic data pipeline with BEA API integration",
       "featured_reason": "Modern data engineering stack, production-ready pipeline"
+    },
+    {
+      "id": "ethoscope",
+      "name": "ethoscope",
+      "description": "Comprehensive Ethereum network monitoring platform tracking gas prices, MEV activity, and L2 migration patterns with real-time ETL pipeline and predictive analytics",
+      "category": "engineering",
+      "technologies": ["Python", "FastAPI", "TimescaleDB", "Prophet", "scikit-learn", "Web3.py", "Redis", "Docker"],
+      "commit_count": 1,
+      "last_updated": "2025-08-07",
+      "created": "2025-08-07",
+      "is_public": true,
+      "complexity": "high",
+      "special_notes": "Real-time blockchain analytics with TimescaleDB time-series storage, MEV-Boost impact analysis, and ML-powered gas price forecasting",
+      "featured_reason": "Production-grade blockchain infrastructure, advanced time-series analytics, comprehensive ETL pipeline"
     },
     {
       "id": "ope-base",
