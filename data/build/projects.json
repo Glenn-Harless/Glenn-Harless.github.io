@@ -195,6 +195,57 @@
       ],
       "github_url": "https://github.com/Glenn-Harless/music_rip",
       "is_private": false
+    },
+    {
+      "id": "signal-23-website",
+      "title": "signal 23 website",
+      "category": "web",
+      "year": "2025",
+      "summary": "interactive website for electronic duo signal-23 featuring dystopian noise effects and data/numbe...",
+      "full_description": "Interactive website for electronic duo Signal-23 featuring dystopian noise effects and data/numbers station aesthetics",
+      "tech": [
+        "react",
+        "javascript",
+        "webpack",
+        "tailwind css",
+        "docker"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/signal-23-website",
+      "is_private": false
+    },
+    {
+      "id": "lost-in-tropez-website",
+      "title": "lost in tropez website",
+      "category": "web",
+      "year": "2025",
+      "summary": "vibrant website for electronic dance duo lost in tropez with retro psychedelic aesthetics inspire...",
+      "full_description": "Vibrant website for electronic dance duo Lost in Tropez with retro psychedelic aesthetics inspired by Polo & Pan",
+      "tech": [
+        "typescript",
+        "react",
+        "vite",
+        "tailwind css",
+        "docker"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/lost-in-tropez-website",
+      "is_private": false
+    },
+    {
+      "id": "arcope-website",
+      "title": "arcope website",
+      "category": "web",
+      "year": "2025",
+      "summary": "interactive website for solo electronic project arcope featuring network/data aesthetics inspired...",
+      "full_description": "Interactive website for solo electronic project Arcope featuring network/data aesthetics inspired by Odesza",
+      "tech": [
+        "typescript",
+        "react",
+        "framer motion",
+        "vite",
+        "tailwind css"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/arcope-website",
+      "is_private": false
     }
   ]
 }
