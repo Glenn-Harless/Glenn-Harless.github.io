@@ -159,6 +159,81 @@
         "results": "identified optimal posting times, content types, and audience segments. detected 15-20% bot activity in engagement metrics",
         "impact": "enabled data-driven content strategy for independent artists. insights applicable across music industry"
       }
+    },
+    {
+      "id": "arcope-website",
+      "title": "arcope website",
+      "category": "web",
+      "year": "2025",
+      "summary": "interactive website for solo electronic project arcope featuring network/data aesthetics inspired...",
+      "full_description": "Interactive website for solo electronic project Arcope featuring network/data aesthetics inspired by Odesza",
+      "tech": [
+        "typescript",
+        "react",
+        "framer motion",
+        "vite",
+        "tailwind css"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/arcope-website",
+      "is_private": false,
+      "highlight": "Live at arcope.xyz",
+      "expanded_content": {
+        "problem": "solo electronic music project needed web presence reflecting odesza-inspired sound and data/network aesthetics",
+        "approach": "react with framer motion animations. vibe-coded frontend exploring creative web development outside backend comfort zone",
+        "results": "interactive site with network-inspired visuals matching the musical aesthetic. deployed on netlify with docker dev environment",
+        "impact": "demonstrates versatility beyond backend/data work. shows willingness to learn and experiment with new domains"
+      },
+      "live_url": "http://arcope.xyz/"
+    },
+    {
+      "id": "lost-in-tropez-website",
+      "title": "lost in tropez website",
+      "category": "web",
+      "year": "2025",
+      "summary": "vibrant website for electronic dance duo lost in tropez with retro psychedelic aesthetics inspire...",
+      "full_description": "Vibrant website for electronic dance duo Lost in Tropez with retro psychedelic aesthetics inspired by Polo & Pan",
+      "tech": [
+        "typescript",
+        "react",
+        "vite",
+        "tailwind css",
+        "docker"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/lost-in-tropez-website",
+      "is_private": false,
+      "highlight": "Live at lostintropez.xyz",
+      "expanded_content": {
+        "problem": "electronic dance duo inspired by polo & pan needed vibrant web presence with retro psychedelic aesthetics",
+        "approach": "typescript react with vite build system. embraced experimental frontend development to match group's playful energy",
+        "results": "colorful, animated site capturing the duo's tropical electronic vibe. containerized development for consistent environments",
+        "impact": "showcases creative side and ability to translate musical aesthetics into visual web experiences"
+      },
+      "live_url": "https://lostintropez.xyz/"
+    },
+    {
+      "id": "signal-23-website",
+      "title": "signal 23 website",
+      "category": "web",
+      "year": "2025",
+      "summary": "interactive website for electronic duo signal-23 featuring dystopian noise effects and data/numbe...",
+      "full_description": "Interactive website for electronic duo Signal-23 featuring dystopian noise effects and data/numbers station aesthetics",
+      "tech": [
+        "react",
+        "javascript",
+        "webpack",
+        "tailwind css",
+        "docker"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/signal-23-website",
+      "is_private": false,
+      "highlight": "Live at signal23.net",
+      "expanded_content": {
+        "problem": "electronic duo exploring moderat-inspired themes needed dystopian web presence reflecting data/numbers station aesthetics",
+        "approach": "react with interactive noise effects and signal animations. webpack build with custom visual effects matching dark electronic sound",
+        "results": "immersive site with dynamic signal effects creating atmospheric experience. successfully deployed capturing dystopian aesthetic",
+        "impact": "demonstrates ability to create experiential web interfaces that align with artistic vision"
+      },
+      "live_url": "https://signal23.net/"
     }
   ],
   "projects": [
@@ -194,57 +269,6 @@
         "poetry"
       ],
       "github_url": "https://github.com/Glenn-Harless/music_rip",
-      "is_private": false
-    },
-    {
-      "id": "signal-23-website",
-      "title": "signal 23 website",
-      "category": "web",
-      "year": "2025",
-      "summary": "interactive website for electronic duo signal-23 featuring dystopian noise effects and data/numbe...",
-      "full_description": "Interactive website for electronic duo Signal-23 featuring dystopian noise effects and data/numbers station aesthetics",
-      "tech": [
-        "react",
-        "javascript",
-        "webpack",
-        "tailwind css",
-        "docker"
-      ],
-      "github_url": "https://github.com/Glenn-Harless/signal-23-website",
-      "is_private": false
-    },
-    {
-      "id": "lost-in-tropez-website",
-      "title": "lost in tropez website",
-      "category": "web",
-      "year": "2025",
-      "summary": "vibrant website for electronic dance duo lost in tropez with retro psychedelic aesthetics inspire...",
-      "full_description": "Vibrant website for electronic dance duo Lost in Tropez with retro psychedelic aesthetics inspired by Polo & Pan",
-      "tech": [
-        "typescript",
-        "react",
-        "vite",
-        "tailwind css",
-        "docker"
-      ],
-      "github_url": "https://github.com/Glenn-Harless/lost-in-tropez-website",
-      "is_private": false
-    },
-    {
-      "id": "arcope-website",
-      "title": "arcope website",
-      "category": "web",
-      "year": "2025",
-      "summary": "interactive website for solo electronic project arcope featuring network/data aesthetics inspired...",
-      "full_description": "Interactive website for solo electronic project Arcope featuring network/data aesthetics inspired by Odesza",
-      "tech": [
-        "typescript",
-        "react",
-        "framer motion",
-        "vite",
-        "tailwind css"
-      ],
-      "github_url": "https://github.com/Glenn-Harless/arcope-website",
       "is_private": false
     }
   ]
