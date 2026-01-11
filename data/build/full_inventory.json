@@ -33,28 +33,14 @@
       "name": "geo-causal-inference",
       "description": "Measuring causal effects of marketing interventions using Time-Based Regression (TBR) with Matched Markets methodology",
       "category": "research",
-      "technologies": ["Jupyter Notebook", "Python"],
+      "technologies": ["Python", "Causal inference", "Time series", "Statistical modeling", "Jupyter Notebook"],
       "commit_count": 20,
-      "last_updated": "2025-05-26",
+      "last_updated": "2025-12-17",
       "created": "2025-03-27",
-      "is_public": true,
+      "is_public": false,
       "complexity": "high",
       "special_notes": "Advanced causal inference for marketing analytics with geographic data integration",
       "featured_reason": "Recent project, advanced analytics methodology, substantial size"
-    },
-    {
-      "id": "signal-23-ai",
-      "name": "signal-23.ai",
-      "description": "Building RAG system on top of Notion documentation for signal 23 artist",
-      "category": "ai-ml",
-      "technologies": ["Python", "RAG", "Notion API", "FAISS/PGVector", "FastAPI", "Ollama/OpenAI"],
-      "commit_count": 11,
-      "last_updated": "2024-12-21",
-      "created": "2024-11-24",
-      "is_public": true,
-      "complexity": "high",
-      "special_notes": "Cyberpunk-themed AI interface for Notion knowledge retrieval",
-      "featured_reason": "Modern AI/RAG implementation, creative application"
     },
     {
       "id": "content-pulse",
@@ -160,17 +146,30 @@
   ],
   "projects": [
     {
+      "id": "racksmith",
+      "name": "racksmith",
+      "description": "CLI tool to programmatically generate Ableton Live audio effect racks (.adg files) from simple commands or AI-assisted prompts",
+      "category": "tools",
+      "technologies": ["Python", "XML parsing", "Click", "UV", "LLM integration"],
+      "commit_count": 15,
+      "last_updated": "2026-01-02",
+      "created": "2025-12-01",
+      "is_public": false,
+      "complexity": "medium",
+      "special_notes": "Generate effect chains for drums, vocals, synths with macro mappings and AI assistance"
+    },
+    {
       "id": "logue-osc",
       "name": "logue_osc",
-      "description": "Place to hold my minilogue xd oscillator",
+      "description": "Custom oscillator development for Korg Minilogue XD synthesizer using the logue SDK",
       "category": "tools",
-      "technologies": ["JavaScript", "C", "Makefile", "Korg Logue SDK", "Web Audio API", "Emscripten"],
+      "technologies": ["C", "Korg Logue SDK", "DSP", "Makefile"],
       "commit_count": 5,
       "last_updated": "2025-06-16",
       "created": "2025-06-08",
       "is_public": true,
       "complexity": "medium",
-      "special_notes": "Custom oscillator development for Korg Minilogue XD synthesizer"
+      "special_notes": "Low-level DSP programming for embedded audio synthesis hardware"
     },
     {
       "id": "psych-ward-optimization",
@@ -188,15 +187,15 @@
     {
       "id": "music-rip",
       "name": "music_rip",
-      "description": "YouTube audio downloader with CLI interface",
+      "description": "CLI tool for downloading and organizing audio from YouTube for sampling and DJ sets",
       "category": "tools",
-      "technologies": ["Python", "Shell", "yt-dlp", "click", "poetry"],
+      "technologies": ["Python", "yt-dlp", "Click", "Poetry", "FFmpeg"],
       "commit_count": 2,
       "last_updated": "2025-06-05",
       "created": "2025-06-04",
       "is_public": true,
       "complexity": "low",
-      "special_notes": "Download YouTube videos as audio files with batch processing"
+      "special_notes": "Streamlined workflow for downloading and organizing samples"
     },
     {
       "id": "content-pulse",
@@ -210,19 +209,6 @@
       "is_public": true,
       "complexity": "medium",
       "special_notes": "Real-time crypto news analysis with LLM summarization"
-    },
-    {
-      "id": "signal-23-ai",
-      "name": "signal-23.ai",
-      "description": "Building RAG system on top of Notion documentation for signal 23 artist",
-      "category": "ai-ml",
-      "technologies": ["Python", "JavaScript", "HTML", "RAG", "Notion API", "FAISS/PGVector", "FastAPI", "Ollama/OpenAI"],
-      "commit_count": 11,
-      "last_updated": "2024-12-21",
-      "created": "2024-11-24",
-      "is_public": true,
-      "complexity": "high",
-      "special_notes": "Cyberpunk-themed AI interface for Notion knowledge retrieval"
     },
     {
       "id": "ope-base",

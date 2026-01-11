@@ -32,40 +32,19 @@
       "summary": "measuring causal effects of marketing interventions with time-based regression (tbr) with matched...",
       "full_description": "Measuring causal effects of marketing interventions using Time-Based Regression (TBR) with Matched Markets methodology",
       "tech": [
-        "jupyter notebook",
-        "python"
+        "python",
+        "causal inference",
+        "time series",
+        "statistical modeling",
+        "jupyter notebook"
       ],
-      "github_url": "https://github.com/Glenn-Harless/geo-causal-inference",
-      "is_private": false,
+      "github_url": null,
+      "is_private": true,
       "expanded_content": {
         "problem": "measuring true causal effects of marketing interventions when randomized direct experiments aren't feasible",
         "approach": "time-based regression with matched markets methodology. leverages geographic variation as natural experiments",
         "results": "identified promising geo regions for TV ad implementation and enabled confident impact assessment",
         "impact": "enables data-driven marketing decisions with rigorous statistical backing"
-      }
-    },
-    {
-      "id": "signal-23-ai",
-      "title": "signal 23.ai",
-      "category": "ai-ml",
-      "year": "2024",
-      "summary": "building rag system on top of notion documentation for signal 23 artist",
-      "full_description": "Building RAG system on top of Notion documentation for signal 23 artist",
-      "tech": [
-        "python",
-        "rag",
-        "notion api",
-        "faiss/pgvector",
-        "fastapi"
-      ],
-      "github_url": "https://github.com/Glenn-Harless/signal-23.ai",
-      "is_private": false,
-      "highlight": "AI/LLM powered",
-      "expanded_content": {
-        "problem": "artist's notion documentation scattered across multiple sources. fans needed unified knowledge interface",
-        "approach": "rag system with faiss/pgvector for semantic search. custom cyberpunk ui matching artist aesthetic",
-        "results": "95% relevance accuracy on test queries. created eerie artifact communicating in broken language for atmospheric effect",
-        "impact": "enhances fan engagement through ai-powered knowledge discovery"
       }
     },
     {
@@ -238,38 +217,72 @@
   ],
   "projects": [
     {
+      "id": "racksmith",
+      "title": "racksmith",
+      "category": "tools",
+      "year": "2026",
+      "summary": "cli tool to programmatically generate ableton live audio effect racks (.adg files) from simple co...",
+      "full_description": "CLI tool to programmatically generate Ableton Live audio effect racks (.adg files) from simple commands or AI-assisted prompts",
+      "tech": [
+        "python",
+        "xml parsing",
+        "click",
+        "uv",
+        "llm integration"
+      ],
+      "github_url": null,
+      "is_private": true,
+      "expanded_content": {
+        "problem": "building effect chains in ableton is tedious menu-clicking when you'd rather be making music. push 3 standalone makes this even more painful",
+        "approach": "reverse-engineered .adg format (gzip-compressed xml). built template extraction from real racks, chain syntax parser, macro mapping system, and ai-assisted generation via llm prompts",
+        "results": "generate complex racks in seconds with simple commands like 'eq8 -> compressor -> reverb'. supports parameter defaults, macro mappings with custom ranges, and switchable variations",
+        "impact": "personal productivity tool that lets me focus on sound design instead of clicking through menus. demonstrates intersection of data engineering patterns and creative workflows"
+      }
+    },
+    {
       "id": "logue-osc",
       "title": "logue osc",
       "category": "tools",
       "year": "2025",
-      "summary": "place to hold my minilogue xd oscillator",
-      "full_description": "Place to hold my minilogue xd oscillator",
+      "summary": "custom oscillator development for korg minilogue xd synthesizer with the logue sdk",
+      "full_description": "Custom oscillator development for Korg Minilogue XD synthesizer using the logue SDK",
       "tech": [
-        "javascript",
         "c",
-        "makefile",
         "korg logue sdk",
-        "web audio api"
+        "dsp",
+        "makefile"
       ],
       "github_url": "https://github.com/Glenn-Harless/logue_osc",
-      "is_private": false
+      "is_private": false,
+      "expanded_content": {
+        "problem": "stock oscillators on the minilogue xd are great but limited. wanted custom waveforms and modulation options for my sound design",
+        "approach": "using korg's logue sdk to write custom oscillators in c. low-level dsp programming with fixed-point math for real-time audio generation on embedded hardware",
+        "results": "custom oscillators that run directly on the synth hardware. learning experience in embedded audio programming and dsp fundamentals",
+        "impact": "scratches the itch of understanding synthesis at the lowest level. bridges gap between music production hobby and engineering skills"
+      }
     },
     {
       "id": "music-rip",
       "title": "music rip",
       "category": "tools",
       "year": "2025",
-      "summary": "youtube audio downloader with cli interface",
-      "full_description": "YouTube audio downloader with CLI interface",
+      "summary": "cli tool for downloading and organizing audio from youtube for sampling and dj sets",
+      "full_description": "CLI tool for downloading and organizing audio from YouTube for sampling and DJ sets",
       "tech": [
         "python",
-        "shell",
         "yt-dlp",
         "click",
-        "poetry"
+        "poetry",
+        "ffmpeg"
       ],
       "github_url": "https://github.com/Glenn-Harless/music_rip",
-      "is_private": false
+      "is_private": false,
+      "expanded_content": {
+        "problem": "finding and downloading samples or tracks for dj sets involves too many clicks and manual file management. needed a streamlined workflow",
+        "approach": "python cli wrapping yt-dlp with sensible defaults for audio quality, automatic metadata tagging, and organized output directories. poetry for dependency management",
+        "results": "one command to download, convert, and organize audio files. integrates into music production workflow seamlessly",
+        "impact": "simple utility that saves time in the creative process. example of building small tools to solve personal friction points"
+      }
     }
   ]
 }
