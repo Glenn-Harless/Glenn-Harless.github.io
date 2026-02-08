@@ -240,25 +240,94 @@
       }
     },
     {
-      "id": "logue-osc",
-      "title": "logue osc",
+      "id": "mfc",
+      "title": "mfc",
       "category": "tools",
-      "year": "2025",
-      "summary": "custom oscillator development for korg minilogue xd synthesizer with the logue sdk",
-      "full_description": "Custom oscillator development for Korg Minilogue XD synthesizer using the logue SDK",
+      "year": "2026",
+      "summary": "cli tool for programmatically authoring arturia minifreak synthesizer presets from config files",
+      "full_description": "CLI tool for programmatically authoring Arturia MiniFreak synthesizer presets from config files",
       "tech": [
-        "c",
-        "korg logue sdk",
-        "dsp",
-        "makefile"
+        "python",
+        "toml",
+        "typer",
+        "uv"
       ],
-      "github_url": "https://github.com/Glenn-Harless/logue_osc",
+      "github_url": null,
+      "is_private": true,
+      "expanded_content": {
+        "problem": "creating and managing presets for the arturia minifreak is slow and manual. the hardware editor is fine for tweaking but terrible for batch creation or systematic preset design",
+        "approach": "python cli that reads and writes minifreak preset files. toml-based configuration for defining oscillator types, filter settings, and modulation routing. template system for rapid iteration",
+        "results": "programmatic preset generation from config files. batch creation of preset variations. systematic exploration of the minifreak's sound engine",
+        "impact": "another music tool that automates the tedious parts of sound design. same pattern as racksmith but for hardware synth presets"
+      }
+    },
+    {
+      "id": "mxd",
+      "title": "mxd",
+      "category": "tools",
+      "year": "2026",
+      "summary": "cli tool and wasm preview app for building korg minilogue xd user oscillators with browser-based ...",
+      "full_description": "CLI tool and WASM preview app for building Korg Minilogue XD user oscillators with browser-based testing",
+      "tech": [
+        "python",
+        "typer",
+        "c",
+        "emscripten",
+        "docker"
+      ],
+      "github_url": null,
+      "is_private": true,
+      "expanded_content": {
+        "problem": "developing custom oscillators for the korg minilogue xd requires wrestling with the logue sdk toolchain, cross-compiling for arm, and no way to preview without loading onto hardware",
+        "approach": "python cli wrapping the full logue sdk workflow. emscripten/wasm compilation for browser-based oscillator preview. docker builds for consistent cross-compilation. typer for ergonomic cli",
+        "results": "full dev cycle from 'mxd init' to hardware binary. browser preview eliminates the upload-test-repeat loop. preset system for testing different parameter combinations",
+        "impact": "evolved from basic logue_osc experiments into a proper development toolkit. bridges embedded c programming with modern python developer experience"
+      }
+    },
+    {
+      "id": "date-night",
+      "title": "date night",
+      "category": "web",
+      "year": "2026",
+      "summary": "full-stack san diego date planning app for indecisive with smart filtering and suggestions",
+      "full_description": "Full-stack San Diego date planning app for the indecisive with smart filtering and suggestions",
+      "tech": [
+        "next.js",
+        "typescript",
+        "fastapi",
+        "postgresql",
+        "docker"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/date_night",
       "is_private": false,
       "expanded_content": {
-        "problem": "stock oscillators on the minilogue xd are great but limited. wanted custom waveforms and modulation options for my sound design",
-        "approach": "using korg's logue sdk to write custom oscillators in c. low-level dsp programming with fixed-point math for real-time audio generation on embedded hardware",
-        "results": "custom oscillators that run directly on the synth hardware. learning experience in embedded audio programming and dsp fundamentals",
-        "impact": "scratches the itch of understanding synthesis at the lowest level. bridges gap between music production hobby and engineering skills"
+        "problem": "deciding what to do on a date night in san diego always ends in analysis paralysis. too many options, no way to filter or plan efficiently",
+        "approach": "full-stack web app with next.js frontend and fastapi backend. radix ui components with framer motion animations. postgresql database with sqlalchemy async orm. deployed on render",
+        "results": "date planning app with smart filtering, suggestions, and a polished ui. mobile-friendly with animated interactions",
+        "impact": "fun personal project that solves a real problem. first full-stack app with next.js frontend and python backend working together"
+      }
+    },
+    {
+      "id": "stitch-chords",
+      "title": "stitch chords",
+      "category": "tools",
+      "year": "2026",
+      "summary": "high-density music theory reference pwa for keyboard players with artist harmonic mapping and cho...",
+      "full_description": "High-density music theory reference PWA for keyboard players with artist harmonic mapping and chord expansion engine",
+      "tech": [
+        "react",
+        "typescript",
+        "vite",
+        "tailwind css",
+        "pwa"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/stitch_chords",
+      "is_private": false,
+      "expanded_content": {
+        "problem": "learning complex chord voicings and artist-specific harmonic techniques means jumping between scattered music theory resources. no single reference optimized for keyboard players",
+        "approach": "react pwa with terminal-inspired aesthetic. music theory engine that parses chord symbols into intervals and note spellings. artist harmonic libraries with roman numeral analysis",
+        "results": "high-density reference app with artist chord maps (radiohead, apparat, nils frahm), harmonic expansion engine, live transpose, and song builder. works offline as pwa",
+        "impact": "bridges music theory and engineering. demonstrates ability to build domain-specific tools with complex internal logic"
       }
     },
     {
