@@ -110,6 +110,7 @@ function updateFilterCounts() {
         'all': allProjects.length,
         'ai-ml': 0,
         'analytics': 0,
+        'civic-data': 0,
         'engineering': 0,
         'web': 0,
         'tools': 0,

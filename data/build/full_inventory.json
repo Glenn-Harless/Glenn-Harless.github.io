@@ -43,6 +43,20 @@
       "featured_reason": "Recent project, advanced analytics methodology, substantial size"
     },
     {
+      "id": "sd-civic-data",
+      "name": "sd-civic-data",
+      "description": "7-project civic data platform covering San Diego's budget, services, housing, transportation, climate, public safety, and homelessness — each with pipeline, Streamlit dashboard, FastAPI, and MCP server",
+      "category": "civic-data",
+      "technologies": ["Python", "DuckDB", "Streamlit", "FastAPI", "FastMCP"],
+      "commit_count": 100,
+      "last_updated": "2026-02-11",
+      "created": "2026-02-08",
+      "is_public": true,
+      "complexity": "high",
+      "special_notes": "7 interconnected projects: sd-get-it-done, sd-city-budget, sd-housing-permits, sd-traffic-transportation, sd-climate-action, sd-public-safety, sd-homelessness. 75 API endpoints, 7 dashboards, 7 MCP servers.",
+      "featured_reason": "Comprehensive civic data platform demonstrating data engineering at scale with consistent architecture"
+    },
+    {
       "id": "content-pulse",
       "name": "content-pulse",
       "description": "LLM-powered content aggregator and analyzer for extracting real-time insights from social media and news sources",

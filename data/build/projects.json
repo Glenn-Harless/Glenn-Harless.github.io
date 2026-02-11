@@ -48,6 +48,30 @@
       }
     },
     {
+      "id": "sd-civic-data",
+      "title": "sd civic data",
+      "category": "civic-data",
+      "year": "2026",
+      "summary": "7-project civic data platform covering san diego's budget, services, housing, transportation, cli...",
+      "full_description": "7-project civic data platform covering San Diego's budget, services, housing, transportation, climate, public safety, and homelessness \u2014 each with pipeline, Streamlit dashboard, FastAPI, and MCP server",
+      "tech": [
+        "python",
+        "duckdb",
+        "streamlit",
+        "fastapi",
+        "fastmcp"
+      ],
+      "github_url": null,
+      "is_private": false,
+      "highlight": "7 dashboards \u00d7 75 endpoints \u00d7 7 MCP servers",
+      "expanded_content": {
+        "problem": "san diego publishes open data across dozens of portals but nobody connects the dots \u2014 budget to services to housing to safety. residents can't trace how tax dollars flow into outcomes",
+        "approach": "built 7 interconnected projects on a shared architecture: duckdb + parquet pipeline \u2192 streamlit dashboard \u2192 fastapi rest api \u2192 mcp server for claude. each project answers questions the previous one raises. monthly github actions refresh keeps data current",
+        "results": "75 api endpoints, 7 interactive dashboards, 7 mcp servers. covers 311 service requests (3M+ records), city budget (FY2011-2026), housing permits (2002-present), traffic & transit, climate action, public safety, and homelessness",
+        "impact": "a connected story about how the city spends, serves, grows, and evolves \u2014 all from open public data. live dashboards: <a href=\"https://sd-get-it-done.streamlit.app/\" target=\"_blank\">311 services</a> \u00b7 <a href=\"https://sd-city-budget-live.streamlit.app/\" target=\"_blank\">city budget</a> \u00b7 <a href=\"https://sd-housing-permits.streamlit.app/\" target=\"_blank\">housing permits</a> \u00b7 <a href=\"https://sd-traffic-transportation.streamlit.app/\" target=\"_blank\">traffic & transit</a> \u00b7 <a href=\"https://sd-climate-action.streamlit.app/\" target=\"_blank\">climate action</a> \u00b7 <a href=\"https://sd-public-safety.streamlit.app/\" target=\"_blank\">public safety</a> \u00b7 <a href=\"https://sd-homelessness.streamlit.app/\" target=\"_blank\">homelessness</a>"
+      }
+    },
+    {
       "id": "content-pulse",
       "title": "content pulse",
       "category": "ai-ml",
