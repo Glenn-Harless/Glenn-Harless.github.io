@@ -72,6 +72,31 @@
       }
     },
     {
+      "id": "sd-business-intel",
+      "title": "sd business intel",
+      "category": "civic-data",
+      "year": "2026",
+      "summary": "location intelligence platform for entrepreneurs evaluating where to open a business in san diego...",
+      "full_description": "Location intelligence platform for entrepreneurs evaluating where to open a business in San Diego. Cross-references 51K+ business tax certificates, US Census demographics, and 5 civic data sources to produce neighborhood profiles and competitive landscape analysis across 82 zip codes and 23 named areas.",
+      "tech": [
+        "python",
+        "duckdb",
+        "streamlit",
+        "fastapi",
+        "fastmcp"
+      ],
+      "github_url": "https://github.com/Glenn-Harless/sd-business-intel",
+      "is_private": false,
+      "highlight": "51K+ businesses \u00d7 82 zip codes \u00d7 14 endpoints",
+      "expanded_content": {
+        "problem": "entrepreneurs choosing where to open a business in san diego have no easy way to compare neighborhoods \u2014 business density, demographics, competition, and civic health signals are scattered across different government portals",
+        "approach": "duckdb pipeline ingesting 51K+ business tax certificates, us census demographics, and 5 civic data sources (housing permits, crime, solar, 311, homelessness) into pre-aggregated parquets. streamlit dashboard with area-first navigation, head-to-head comparisons, and sortable rankings. fastapi rest api (14 endpoints) and mcp server (13 tools) for programmatic and conversational access",
+        "results": "neighborhood profiles and competitive landscape analysis across 82 zip codes and 23 named areas. narrative generation produces plain-english summaries like 'compared to the avg sd zip code: downtown has 6x the businesses, 3x the businesses per capita \u2014 but 53% more crime'",
+        "impact": "answers \"should i open a coffee shop in north park or carlsbad?\" with business density, demographic fit, competition by category, civic health signals, and year-over-year trends \u2014 all in a single dashboard. <a href=\"https://sd-business-intel.streamlit.app/\" target=\"_blank\">live dashboard</a> \u00b7 <a href=\"https://github.com/Glenn-Harless/sd-business-intel\" target=\"_blank\">github</a>"
+      },
+      "live_url": "https://sd-business-intel.streamlit.app/"
+    },
+    {
       "id": "content-pulse",
       "title": "content pulse",
       "category": "ai-ml",

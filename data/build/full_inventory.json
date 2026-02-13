@@ -57,6 +57,21 @@
       "featured_reason": "Comprehensive civic data platform demonstrating data engineering at scale with consistent architecture"
     },
     {
+      "id": "sd-business-intel",
+      "name": "sd-business-intel",
+      "description": "Location intelligence platform for entrepreneurs evaluating where to open a business in San Diego. Cross-references 51K+ business tax certificates, US Census demographics, and 5 civic data sources to produce neighborhood profiles and competitive landscape analysis across 82 zip codes and 23 named areas.",
+      "category": "civic-data",
+      "technologies": ["Python", "DuckDB", "Streamlit", "FastAPI", "FastMCP"],
+      "commit_count": 50,
+      "last_updated": "2026-02-12",
+      "created": "2026-02-10",
+      "is_public": true,
+      "complexity": "high",
+      "live_url": "https://sd-business-intel.streamlit.app/",
+      "special_notes": "Cross-references 51K+ business tax certificates, US Census demographics, and 5 civic data sources. 14 API endpoints, 13 MCP tools, interactive dashboard with area comparisons and narrative generation.",
+      "featured_reason": "Location intelligence platform demonstrating data engineering, analytics, and conversational AI at scale"
+    },
+    {
       "id": "content-pulse",
       "name": "content-pulse",
       "description": "LLM-powered content aggregator and analyzer for extracting real-time insights from social media and news sources",
