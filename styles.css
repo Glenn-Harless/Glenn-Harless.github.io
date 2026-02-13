@@ -27,6 +27,30 @@ body {
     overflow-x: hidden;
 }
 
+/* Scroll-driven waveform oscilloscope */
+#waveform-canvas {
+    position: fixed;
+    top: 50%;
+    right: 4rem;
+    transform: translateY(-50%);
+    width: 320px;
+    height: 100px;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+#waveform-canvas.visible {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    #waveform-canvas {
+        display: none;
+    }
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -192,7 +216,9 @@ a:hover::after {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 2rem;
-    margin-bottom: 6rem;
+    margin-bottom: 3.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     opacity: 0;
     transition: all 0.3s ease;
     position: relative;
@@ -220,7 +246,7 @@ a:hover::after {
 }
 
 .project-title {
-    grid-column: 2 / 6;
+    grid-column: 2 / 7;
     font-size: 1.8rem;
     font-weight: 400;
     cursor: crosshair;
@@ -230,18 +256,22 @@ a:hover::after {
     font-size: 2rem;
 }
 
-.project-category {
-    grid-column: 6 / 8;
-    align-self: center;
+.project-meta {
+    grid-column: 2 / 7;
     font-size: 0.8rem;
-    opacity: 0.6;
+    opacity: 0.5;
+    margin-top: -0.5rem;
 }
 
-.project-year {
-    grid-column: 8 / 9;
-    align-self: center;
-    font-size: 0.8rem;
-    opacity: 0.6;
+.project-meta .project-category,
+.project-meta .project-year {
+    display: inline;
+    font-size: inherit;
+    opacity: inherit;
+}
+
+.project-meta .project-category::after {
+    content: ' \00b7  ';
 }
 
 .project-description {
@@ -297,51 +327,42 @@ a:hover::after {
 
 /* Project highlight */
 .project-highlight {
-    grid-column: 2 / 6;
-    margin-top: 0.5rem;
+    grid-column: 2 / 7;
+    margin-top: 0.25rem;
     font-size: 0.85rem;
     opacity: 0.6;
     font-style: italic;
 }
 
-/* Expand button */
+/* Expand indicator — inline after tech */
 .expand-btn {
-    grid-column: 11 / 12;
-    align-self: center;
+    grid-column: 2 / 4;
     background: none;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
+    border: none;
     cursor: crosshair;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-}
-
-.featured-projects .expand-btn {
-    opacity: 0.4;
-}
-
-.project:hover .expand-btn {
-    opacity: 0.6;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 200;
+    opacity: 0.35;
+    transition: opacity 0.2s ease;
+    padding: 0;
+    margin-top: 0.75rem;
+    text-align: left;
+    display: block;
 }
 
 .expand-btn:hover {
-    border-color: rgba(0, 0, 0, 0.4);
-    opacity: 0.8 !important;
+    opacity: 0.6;
 }
 
 .expand-icon {
-    font-size: 1.2rem;
-    font-weight: 200;
+    display: inline-block;
     transition: transform 0.3s ease;
+    margin-right: 0.3rem;
 }
 
 .project.expanded .expand-icon {
-    transform: rotate(45deg);
+    transform: rotate(180deg);
 }
 
 /* Expandable case study section */
@@ -532,7 +553,8 @@ a:hover::after {
     }
 
     .project {
-        margin-bottom: 4rem;
+        margin-bottom: 2.5rem;
+        padding-bottom: 2rem;
     }
 
     .project > * {
@@ -548,11 +570,8 @@ a:hover::after {
         font-size: 1.6rem;
     }
 
-    .project-category,
-    .project-year {
-        display: inline-block;
-        margin-right: 1rem;
-        margin-top: 0.5rem;
+    .project-meta {
+        margin-top: 0;
     }
 
     .featured-badge {
@@ -562,10 +581,8 @@ a:hover::after {
     }
 
     .expand-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        opacity: 0.4;
+        position: static;
+        opacity: 0.35;
     }
 
     .project-expanded {
@@ -737,6 +754,7 @@ a:hover::after {
     /* Fix project grid spacing */
     .project {
         padding: 0;
+        padding-bottom: 2rem;
     }
     
     .project-expanded {
@@ -746,7 +764,7 @@ a:hover::after {
     }
 }
 
-/* E-ink texture effect */
+/* Graph-paper grid texture */
 body::before {
     content: '';
     position: fixed;
@@ -754,24 +772,39 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
+    background:
+        /* Major grid lines - every 64px */
         repeating-linear-gradient(
             0deg,
             transparent,
-            transparent 2px,
-            rgba(0, 0, 0, 0.02) 2px,
-            rgba(0, 0, 0, 0.02) 3px
+            transparent 63px,
+            rgba(0, 0, 0, 0.025) 63px,
+            rgba(0, 0, 0, 0.025) 64px
         ),
         repeating-linear-gradient(
             90deg,
             transparent,
-            transparent 2px,
-            rgba(0, 0, 0, 0.01) 2px,
-            rgba(0, 0, 0, 0.01) 3px
+            transparent 63px,
+            rgba(0, 0, 0, 0.025) 63px,
+            rgba(0, 0, 0, 0.025) 64px
+        ),
+        /* Minor grid lines - every 16px */
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 15px,
+            rgba(0, 0, 0, 0.012) 15px,
+            rgba(0, 0, 0, 0.012) 16px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 15px,
+            rgba(0, 0, 0, 0.012) 15px,
+            rgba(0, 0, 0, 0.012) 16px
         );
     pointer-events: none;
     z-index: 1;
-    opacity: 0.5;
 }
 
 /* Paper grain texture */

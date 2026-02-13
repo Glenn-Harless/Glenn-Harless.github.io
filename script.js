@@ -52,26 +52,31 @@ function renderProjects() {
 // Create project HTML
 function createProjectHTML(project, index) {
     const indexStr = String(index).padStart(3, '0');
-    const techStr = project.tech.join(' × ');
-    const githubLink = project.github_url 
+    const techStr = project.tech.join(' \u00d7 ');
+    const githubLink = project.github_url
         ? `<a href="${project.github_url}" target="_blank" rel="noopener">${project.title}</a>`
         : project.title;
-    
+
     return `
-        <div class="project ${project.expanded_content ? 'featured' : ''}" data-category="${project.category}" data-project-id="${project.id}">
+        <div class="project ${project.expanded_content ? 'has-expandable' : ''}" data-category="${project.category}" data-project-id="${project.id}">
             <div class="project-index">${indexStr}</div>
             <h2 class="project-title">${githubLink}</h2>
-            <div class="project-category">${project.category}</div>
-            <div class="project-year">${project.year}</div>
+            <div class="project-meta">
+                <span class="project-category">${project.category}</span>
+                <span class="project-year">${project.year}</span>
+            </div>
             ${project.highlight ? `<div class="project-highlight">${project.highlight}</div>` : ''}
             <p class="project-description">
-                ${project.full_description && project.summary.endsWith('...') ? 
-                    `<span class="desc-truncated">${project.summary.slice(0, -3)}</span><span class="desc-ellipsis">...</span><span class="desc-continuation">${project.full_description.toLowerCase().substring(project.summary.length - 3)}</span>` : 
+                ${project.full_description && project.summary.endsWith('...') ?
+                    `<span class="desc-truncated">${project.summary.slice(0, -3)}</span><span class="desc-ellipsis">...</span><span class="desc-continuation">${project.full_description.toLowerCase().substring(project.summary.length - 3)}</span>` :
                     project.summary}
             </p>
             <div class="project-tech">${techStr}</div>
-            
+
             ${project.expanded_content ? `
+                <button class="expand-btn" aria-label="Expand project details">
+                    <span class="expand-icon">↓</span> details
+                </button>
                 <div class="project-expanded">
                     <div class="case-study-section">
                         <h3>problem</h3>
@@ -90,9 +95,6 @@ function createProjectHTML(project, index) {
                         <p>${project.expanded_content.impact}</p>
                     </div>
                 </div>
-                <button class="expand-btn" aria-label="Expand project details">
-                    <span class="expand-icon">+</span>
-                </button>
             ` : ''}
         </div>
     `;
@@ -157,7 +159,13 @@ function setupEventListeners() {
     
     // Page indicator on scroll
     window.addEventListener('scroll', updatePageIndicator);
-    
+
+    // Waveform scroll listener
+    window.addEventListener('scroll', onWaveformScroll, { passive: true });
+    if (!WAVEFORM_MOBILE) {
+        drawWaveform();
+    }
+
     // Contact link
     const contactLink = document.querySelector('a[href="#contact"]');
     if (contactLink) {
@@ -223,18 +231,21 @@ function handleFilterClick(e) {
 
 // Handle expand click
 function handleExpandClick(e) {
-    const expandBtn = e.target.closest('.expand-btn');
-    if (!expandBtn) return;
-    
-    const projectEl = expandBtn.closest('.project');
+    // If clicking a link, let it navigate normally
+    if (e.target.closest('a')) return;
+
+    // Find the project element
+    const projectEl = e.target.closest('.project.has-expandable');
+    if (!projectEl) return;
+
     const projectId = projectEl.dataset.projectId;
-    
+
     // Close previously expanded project
     if (expandedProject && expandedProject !== projectId) {
         const prevEl = document.querySelector(`[data-project-id="${expandedProject}"]`);
         if (prevEl) prevEl.classList.remove('expanded');
     }
-    
+
     // Toggle current project
     projectEl.classList.toggle('expanded');
     expandedProject = projectEl.classList.contains('expanded') ? projectId : null;
@@ -351,6 +362,138 @@ function updatePageIndicator() {
         } else {
             dot.classList.remove('active');
         }
+    });
+}
+
+// ============================================
+// Scroll-driven waveform oscilloscope
+// ============================================
+
+let waveformRafId = null;
+const WAVEFORM_MOBILE = window.innerWidth <= 768;
+const WAVEFORM_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Waveform shape for a given phase position
+// progress: 0-1 representing scroll position (controls morph complexity)
+// phase: 0 to 2*PI representing position within the waveform cycle
+// Returns -1 to 1
+function waveformAt(phase, progress) {
+    // Stage 1 (0-15%): Pure sine
+    let signal = Math.sin(phase);
+
+    // Stage 2 (15-40%): Triangle-ish harmonics
+    if (progress > 0.15) {
+        const mix = Math.min((progress - 0.15) / 0.25, 1);
+        signal += mix * 0.5 * Math.sin(2 * phase);
+        signal += mix * 0.3 * Math.sin(3 * phase);
+    }
+
+    // Stage 3 (40-70%): Higher harmonics (saw-like)
+    if (progress > 0.4) {
+        const mix = Math.min((progress - 0.4) / 0.3, 1);
+        signal += mix * 0.2 * Math.sin(5 * phase);
+        signal += mix * 0.15 * Math.sin(7 * phase);
+        signal += mix * 0.1 * Math.sin(9 * phase);
+    }
+
+    // Stage 4 (70-85%): Waveshaping / soft fold
+    if (progress > 0.7) {
+        const foldAmount = (progress - 0.7) / 0.15;
+        const gain = 1 + foldAmount * 4;
+        signal = Math.tanh(gain * signal);
+    }
+
+    // Stage 5 (85-100%): FM + heavy folding
+    if (progress > 0.85) {
+        const fmAmount = (progress - 0.85) / 0.15;
+        signal += fmAmount * 0.3 * Math.sin(3.7 * phase + signal * 2);
+        signal = Math.tanh((1 + fmAmount * 2) * signal);
+    }
+
+    return Math.max(-1, Math.min(1, signal));
+}
+
+// Draw horizontal oscilloscope waveform
+function drawWaveform() {
+    const canvas = document.getElementById('waveform-canvas');
+    if (!canvas || WAVEFORM_MOBILE) return;
+
+    const ctx = canvas.getContext('2d');
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    // Scroll progress 0-1
+    const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+
+    // Show/hide based on whether we're in the scrollable area
+    const workSection = document.querySelector('.work-section');
+    const aboutSection = document.querySelector('.about');
+    let visible = false;
+
+    if (workSection) {
+        const workTop = workSection.getBoundingClientRect().top + scrollTop;
+        const endSection = aboutSection
+            ? aboutSection.getBoundingClientRect().top + scrollTop + aboutSection.offsetHeight
+            : document.documentElement.scrollHeight;
+        visible = scrollTop + window.innerHeight > workTop && scrollTop < endSection;
+    }
+
+    canvas.classList.toggle('visible', visible);
+    if (!visible) return;
+
+    // Handle retina
+    const dpr = window.devicePixelRatio || 1;
+    const cssWidth = 320;
+    const cssHeight = 100;
+
+    if (canvas.width !== cssWidth * dpr || canvas.height !== cssHeight * dpr) {
+        canvas.width = cssWidth * dpr;
+        canvas.height = cssHeight * dpr;
+        canvas.style.width = cssWidth + 'px';
+        canvas.style.height = cssHeight + 'px';
+    }
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, cssWidth, cssHeight);
+
+    // Draw center line (zero crossing reference)
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
+    ctx.lineWidth = 1;
+    ctx.moveTo(0, cssHeight / 2);
+    ctx.lineTo(cssWidth, cssHeight / 2);
+    ctx.stroke();
+
+    // Draw waveform — 2 cycles across the canvas width
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)';
+    ctx.lineWidth = 1.5;
+
+    const centerY = cssHeight / 2;
+    const amplitude = cssHeight * 0.38;
+    const cycles = 2;
+
+    for (let x = 0; x < cssWidth; x++) {
+        const phase = (x / cssWidth) * cycles * Math.PI * 2;
+        const y = centerY - amplitude * waveformAt(phase, progress);
+
+        if (x === 0) {
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
+    }
+
+    ctx.stroke();
+}
+
+// Scroll handler with rAF throttle
+function onWaveformScroll() {
+    if (WAVEFORM_MOBILE || WAVEFORM_REDUCED_MOTION) return;
+    if (waveformRafId) return;
+    waveformRafId = requestAnimationFrame(() => {
+        drawWaveform();
+        waveformRafId = null;
     });
 }
 
